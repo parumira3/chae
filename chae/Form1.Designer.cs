@@ -38,6 +38,8 @@
             this.rdoPlayer2 = new System.Windows.Forms.RadioButton();
             this.listResult1 = new System.Windows.Forms.ListBox();
             this.listResult2 = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listSang = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictNone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictStar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictDal)).BeginInit();
@@ -108,7 +110,7 @@
             // rdoPlayer1
             // 
             this.rdoPlayer1.AutoSize = true;
-            this.rdoPlayer1.Location = new System.Drawing.Point(128, 237);
+            this.rdoPlayer1.Location = new System.Drawing.Point(128, 210);
             this.rdoPlayer1.Name = "rdoPlayer1";
             this.rdoPlayer1.Size = new System.Drawing.Size(77, 16);
             this.rdoPlayer1.TabIndex = 6;
@@ -119,7 +121,7 @@
             // rdoPlayer2
             // 
             this.rdoPlayer2.AutoSize = true;
-            this.rdoPlayer2.Location = new System.Drawing.Point(318, 237);
+            this.rdoPlayer2.Location = new System.Drawing.Point(318, 210);
             this.rdoPlayer2.Name = "rdoPlayer2";
             this.rdoPlayer2.Size = new System.Drawing.Size(77, 16);
             this.rdoPlayer2.TabIndex = 7;
@@ -131,7 +133,7 @@
             // 
             this.listResult1.FormattingEnabled = true;
             this.listResult1.ItemHeight = 12;
-            this.listResult1.Location = new System.Drawing.Point(12, 281);
+            this.listResult1.Location = new System.Drawing.Point(12, 254);
             this.listResult1.Name = "listResult1";
             this.listResult1.Size = new System.Drawing.Size(251, 136);
             this.listResult1.TabIndex = 8;
@@ -140,16 +142,38 @@
             // 
             this.listResult2.FormattingEnabled = true;
             this.listResult2.ItemHeight = 12;
-            this.listResult2.Location = new System.Drawing.Point(292, 281);
+            this.listResult2.Location = new System.Drawing.Point(292, 254);
             this.listResult2.Name = "listResult2";
             this.listResult2.Size = new System.Drawing.Size(251, 136);
             this.listResult2.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 409);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 12);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "-상황판";
+            // 
+            // listSang
+            // 
+            this.listSang.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.listSang.Font = new System.Drawing.Font("돋움", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.listSang.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.listSang.FormattingEnabled = true;
+            this.listSang.Location = new System.Drawing.Point(12, 434);
+            this.listSang.Name = "listSang";
+            this.listSang.Size = new System.Drawing.Size(531, 134);
+            this.listSang.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 450);
+            this.ClientSize = new System.Drawing.Size(560, 595);
+            this.Controls.Add(this.listSang);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.listResult2);
             this.Controls.Add(this.listResult1);
             this.Controls.Add(this.rdoPlayer2);
@@ -183,6 +207,8 @@
         private System.Windows.Forms.RadioButton rdoPlayer2;
         private System.Windows.Forms.ListBox listResult1;
         private System.Windows.Forms.ListBox listResult2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListBox listSang;
     }
 }
 

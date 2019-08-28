@@ -8,59 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CPL = _chae_class;
+
 namespace chae
 {
+
+    struct structPlayer
+    {
+        public int iCount;
+
+        public int iSun;
+        public int iDal;
+        public int iStar;
+
+        public int icardSum;
+
+    }
+
+
+
     public partial class Form1 : Form
     {
-        struct structPlayer
-        {
-            public int iCount;
-
-            public int iSun;
-            public int iDal;
-            public int iStar;
-
-            public int icardSum;
-
-            public int CardSum(int iSun, int iDal, int iStar)
-            {
-                return iSun + iDal + iStar;
-            }
-
-            public string ResultText()
-            {
-                return string.Format("{0}회 해:{1}, 달:{2}, 별:{3} => 합계는 {4}입니다", iCount, iSun, iDal, iStar, icardSum);
-            }
-
-
-        }
-
-        //class classPlayer
-        //{
-        //    public int iCount = 0;
-
-        //    public int iSun;
-        //    public int iDal;
-        //    public int iStar;
-
-        //    public int icardSum;
-
-        //    public int CardSum(int iSun, int iDal, int iStar)
-        //    {
-        //        return iSun + iDal + iStar;
-        //    }
-
-        //    public string ResultText()
-        //    {
-        //        return string.Format("{0}회 해:{1}, 달:{2}, 별:{3} => 합계는 {4}입니다", iCount, iSun, iDal, iStar, icardSum);
-        //    }
-
-        //}
 
         structPlayer _stPlayer1;
         structPlayer _stPlayer2;
 
         Random _rd = new Random();
+
+        CPL.cPlayer _clPlayer;  // = new CPL.cPlayer();
+
+
+        //CP _clPlayer1 = new CP();
+        //_chae_class.cPlayer _clPlayer2 = new _chae_class.cPlayer();
+
 
         public Form1()
         {
@@ -132,17 +112,17 @@ namespace chae
             if (rdoPlayer1.Checked)
             {
                 _stPlayer1.iCount++;
-                strResult = _stPlayer1.ResultText();
+                strResult = _clPlayer.ResultText(_stPlayer1.iCount, _stPlayer1.iSun, _stPlayer1.iDal, _stPlayer1.iStar, _stPlayer1.icardSum);
                 listResult1.Items.Add(strResult);
             }
             else
             {
                 _stPlayer2.iCount++;
-                strResult = _stPlayer2.ResultText();
+                strResult = _clPlayer.ResultText(_stPlayer2.iCount, _stPlayer2.iSun, _stPlayer2.iDal, _stPlayer2.iStar, _stPlayer2.icardSum);
                 listResult2.Items.Add(strResult);
             }
             iCheckedChange();
-            Finaltext();
+           // Finaltext();
         }
 
     
@@ -159,68 +139,64 @@ namespace chae
             }
         }
 
-        private void Finaltext()
-        {
+        //private void Finaltext()
+        //{
 
-            if (_stPlayer1.iCount == 5 & _stPlayer2.iCount == 5)
-            {
-                if (_stPlayer1.icardSum > _stPlayer2.icardSum)
-                {
-                    MessageBox.Show("플레이어1");
-                }
-                else if (_stPlayer1.icardSum < _stPlayer2.icardSum)
-                {
-                    MessageBox.Show("플레이어2");
-                }
-                else if (_stPlayer1.icardSum == _stPlayer2.icardSum)
-                {
-                    MessageBox.Show("==");
-                }
+        //    if (_stPlayer1.iCount == 5 & _stPlayer2.iCount == 5)
+        //    {
+        //        if (_stPlayer1.icardSum > _stPlayer2.icardSum)
+        //        {
+        //            MessageBox.Show("플레이어1");
+        //        }
+        //        else if (_clPlayer1.icardSum < _clPlayer2.icardSum)
+        //        {
+        //            MessageBox.Show("플레이어2");
+        //        }
+        //        else if (_clPlayer1.icardSum == _clPlayer2.icardSum)
+        //        {
+        //            MessageBox.Show("==");
+        //        }
 
-            }
-        }
+        //    }
+        //}
+
+        //CP _clPlayer1 = new CP();
+        //_chae_class.cPlayer _clPlayer2 = new _chae_class.cPlayer();
 
         private void Result()
         {
             string strResult = string.Empty;
 
-            int iCardSum = 0;
+            _clPlayer  = new CPL.cPlayer();
 
             if (rdoPlayer1.Checked)
             {
                 _stPlayer1.iCount++;
-                _stPlayer1.icardSum =  _stPlayer1.CardSum(_stPlayer1.iSun, _stPlayer1.iDal, _stPlayer1.iStar);
-                strResult = _stPlayer1.ResultText();
+                _stPlayer1.icardSum =  _clPlayer.CardSum(_stPlayer1.iSun, _stPlayer1.iDal, _stPlayer1.iStar);
+                strResult = _clPlayer.ResultText(_stPlayer1.iCount,_stPlayer1.iSun, _stPlayer1.iDal, _stPlayer1.iStar, _stPlayer1.icardSum);
                 listResult1.Items.Add(strResult);
             }
             else
             {
                 _stPlayer2.iCount++;
-                _stPlayer2.icardSum = _stPlayer2.CardSum(_stPlayer2.iSun, _stPlayer2.iDal, _stPlayer2.iStar);
-                strResult = _stPlayer2.ResultText();
+                _stPlayer2.icardSum = _clPlayer.CardSum(_stPlayer2.iSun, _stPlayer2.iDal, _stPlayer2.iStar);
+                strResult = _clPlayer.ResultText(_stPlayer2.iCount, _stPlayer2.iSun, _stPlayer2.iDal, _stPlayer2.iStar, _stPlayer2.icardSum);
                 listResult2.Items.Add(strResult);
 
             }
 
             iCheckedChange();
-            Finaltext();
 
-            //if (_stPlayer1.iCount >=5 && _stPlayer2.iCount >= 5)
-            //{
-            //    if (_stPlayer1.icardSum > _stPlayer2.icardSum)
-            //    {
-            //        MessageBox.Show("플레이어1");
-            //    }
-            //    else if (_stPlayer1.icardSum < _stPlayer2.icardSum)
-            //    {
-            //        MessageBox.Show("플레이어2");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("==");
-            //    }
+            if (_stPlayer1.iCount == _stPlayer2.iCount)
+            {
+                listSang.Items.Add(_clPlayer.PlayerCompare(_stPlayer2.iCount, _stPlayer1.icardSum, _stPlayer2.icardSum));
 
-            //}
+                if (_stPlayer2.iCount >= 5)
+                {
+                    listSang.Items.Add(_clPlayer.PlayerResult(_stPlayer1.icardSum, _stPlayer2.icardSum));
+                }
+            }
+            //Finaltext();
 
         }
     }
